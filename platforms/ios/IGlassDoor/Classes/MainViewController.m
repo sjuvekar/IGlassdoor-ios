@@ -69,6 +69,12 @@
     // you can do so here.
 
     [super viewWillAppear:animated];
+    if ([[[UIDevice currentDevice] systemVersion] floatValue] >= 7) {
+        CGRect viewBounds = [self.webView bounds];
+        viewBounds.origin.y = 18;
+        viewBounds.size.height = viewBounds.size.height - 18;
+        self.webView.frame = viewBounds;
+    }
 }
 
 - (void)viewDidLoad
